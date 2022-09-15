@@ -1,0 +1,117 @@
+<template>
+  <div class="outer">
+    <div class="layer" id="layer-1" />
+    <div class="layer" id="layer-2" />
+    <div class="layer" id="layer-3" />
+  </div>
+</template>
+
+<script>
+export default {
+  components: {},
+  props: {},
+  data() {
+    return {}
+  },
+
+  mounted() {
+    this.init()
+  },
+
+  methods: {
+    init() {
+      // Fields
+      let outer = document.querySelector('.outer'),
+        layers = []
+
+      // Generates layers array
+      Array.from(outer.querySelectorAll('.layer')).forEach((item, index) => {
+        layers.push({
+          layer: item,
+          startposition: {
+            x: -50,
+            y: 0,
+            z: index * 4 + 4
+          }
+        })
+      })
+
+      // On mouse move
+      document.addEventListener('mousemove', e => {
+        // Fields
+        let outerCenterX = outer.offsetLeft + outer.offsetWidth / 2,
+          outerCenterY = outer.offsetTop + outer.offsetHeight / 2,
+          distanceX = e.pageX - outerCenterX,
+          distanceY = e.pageY - outerCenterY,
+          direction = Math.atan2(distanceY, distanceX),
+          distance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2)),
+          distanceEqualized =
+            distance /
+            Math.sqrt(Math.pow(window.innerWidth / 2, 2) + Math.pow(window.innerHeight / 2, 2))
+        // Moves layers
+        layers.forEach(item => {
+          let xMoved = Math.cos(direction) * item.startposition.z * distanceEqualized,
+            yMoved = Math.sin(direction) * item.startposition.z * distanceEqualized
+          item.layer.style.cssText = `top:calc( ${item.startposition.y}px + ${yMoved}%);
+          left:calc( ${item.startposition.x}px + ${xMoved}%)`
+        })
+      })
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+// This is seriously old, just sayin' ...
+
+body {
+  margin: 0;
+  background-color: #292929;
+}
+
+.outer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 900px;
+  height: 600px;
+  border: 6px solid #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  .layer {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &#layer-1 {
+      background-image: url(../../assets/image/Blue_Point_Island.png);
+      z-index: 1;
+    }
+
+    &#layer-2 {
+      width: 600px;
+      height: 50%;
+      margin-left: 20%;
+      margin-top: 5%;
+      background-image: url(../../assets/image/Articuno.png);
+      z-index: 2;
+    }
+
+    &#layer-3 {
+      width: 100%;
+      height: 100%;
+      margin-left: 35%;
+      margin-top: 10%;
+      background-image: url(../../assets/image/kisspng-meteor-shower-icon-meteor-shower-across-the-sky-5a73e5d3903ae1.8340378315175449155908__1_-removebg-preview.png);
+      z-index: 3;
+    }
+  }
+}
+</style>

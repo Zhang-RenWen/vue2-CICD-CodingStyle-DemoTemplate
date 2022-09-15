@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.m-father {
+  background: #ccc;
+  height: 1000px;
+  width: 200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.m-rect {
+  width: 50px;
+  height: 50px;
+  background: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+</style>
+
+<body>
+        父级之外
+        <div class="m-father" id="j-father">
+          <div class="m-rect" id="j-rect"></div>
+        </div>
+        父级之外
+</body>
+<script>
+   function Drag(dom, parentDom) {
+  var maxX = parentDom.offsetWidth - dom.offsetWidth,
+    maxY = parentDom.offsetHeight - dom.offsetHeight,
+    domX,
+    domY,
+    beginX,
+    beginY;
+
+  /* 绑定事件*/
+  function _addHandler(dom, type, handle) {
+    if (typeof dom.addEventListener === "function") {
+      dom.addEventListener(type, handle, false);
+    } else if (typeof dom.attachEvent === "function") {
+      dom.attachEvent("on" + type, handle);
+    } else {
+      dom["on" + type] = handle;
+    }
+  }
+
+  /* 解绑事件*/
+  function _removeHandler(dom, type, handle) {
+    if (typeof dom.removeEventListener === "function") {
+      dom.removeEventListener(type, handle, false);
+    } else if (typeof dom.detachEvent === "function") {
+      dom.detachEvent("on" + type, handle);
+    } else {
+      dom["on" + type] = null;
+    }
+  }
+
+  /* 阻止冒泡&阻止默认行为*/
+  function _returnFalse(e) {
+    if (e && e.stopPropagation) {
+      e.stopPropagation();
+      e.preventDefault();
+    } else {
+      window.event.cancelBubble = true;
+      window.event.returnValue = false;
+    }
+  }
+
+  /* 拖拽开始*/
+  function actBegin(e) {
+    e = e || window.event;
+
+    domX = dom.offsetLeft;
+    domY = dom.offsetTop;
+
+    beginX = e.clientX;
+    beginY = e.clientY;
+
+    _addHandler(parentDom, "mousemove", actMove);
+
+    _returnFalse(e); //阻止冒泡、阻止默认行为
+  }
+
+  /* 拖拽移动*/
+  function actMove(e) {
+    e = e || window.event;
+
+    var finalX = e.clientX - beginX + domX,
+      finalY = e.clientY - beginY + domY;
+
+    if (finalX > maxX) {
+      finalX = maxX;
+    } else if (finalX < 0) {
+      finalX = 0;
+    }
+    if (finalY > maxY) {
+      finalY = maxY;
+    } else if (finalY < 0) {
+      finalY = 0;
+    }
+
+    /* 具体移动（使用left、top）*/
+    //requestAnimationFrame(function () {
+    dom.style.left = finalX + "px";
+    dom.style.top = finalY + "px";
+    //});
+
+    _returnFalse(e); //阻止冒泡、阻止默认行为
+  }
+
+  /* 拖拽取消*/
+  function cancel(e) {
+    _removeHandler(parentDom, "mousemove", actMove);
+
+    _returnFalse(e); //阻止冒泡、阻止默认行为
+  }
+
+  /* 绑定事件*/
+  _addHandler(dom, "mousedown", actBegin);
+  _addHandler(parentDom, "mouseup", cancel);
+  _addHandler(parentDom, "mouseleave", cancel);
+
+  this.stop = function() {
+    _removeHandler(dom, "mousedown", actBegin);
+    _removeHandler(parentDom, "mouseup", cancel);
+    _removeHandler(parentDom, "mouseleave", cancel);
+    _removeHandler(parentDom, "mousemove", actMove);
+  };
+}
+
+/* 使用测试*/
+var dom = document.getElementById("j-rect");
+var action = new Drag(dom, dom.offsetParent);
+
+//action.stop();
+
+</script>
+
+</html>
