@@ -1,0 +1,48 @@
+// cSpell Settings
+{
+  // Version of the setting file.  Always 0.2
+  "version": "0.2",
+  // language - current active spelling language
+  "language": "en",
+  // words - list of words to be always considered correct
+  "words": [
+    "aspnet",
+    "blockui",
+    "bootcdn",
+    "browserslist",
+    "codemirror",
+    "commitlint",
+    "datepicker",
+    "fontawesome",
+    "fortawesome",
+    "hexrgba",
+    "Jheng",
+    "jsencrypt",
+    "Kosaka",
+    "Mariko",
+    "mockjs",
+    "nosniff",
+    "nuxt",
+    "Nuxt",
+    "nuxtjs",
+    "paren",
+    "persistedstate",
+    "popperjs",
+    "postbuild",
+    "RENWEN",
+    "SAMEORIGIN",
+    "signalr",
+    "singleline",
+    "stylelint",
+    "sweetalert",
+    "uuidv",
+    "viwes",
+    "vuejs",
+    "vuetify",
+    "vuex"
+  ],
+  // flagWords - list of words to be always considered incorrect
+  // This is useful for offensive words and common spelling errors.
+  // For example "hte" should be "the"
+  "flagWords": [""]
+}
