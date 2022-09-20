@@ -51,6 +51,7 @@
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
+    "commitlint-config-cz": "^0.13.2",
     "cspell": "^5.13.1",
     "eslint": "^7.32.0",
     "eslint-plugin-prettier": "^4.0.0",
@@ -68,5 +69,10 @@
     "vue-cli-plugin-vuetify": "~2.1.0",
     "vue-loader": "^15.9.5",
     "vue-template-compiler": "^2.6.12"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
