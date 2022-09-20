@@ -3,11 +3,3 @@
     <router-view />
   </div>
 </template>
-
-<script>
-export default {
-  mounted() {},
-  components: {},
-  methods: {}
-}
-</script>
