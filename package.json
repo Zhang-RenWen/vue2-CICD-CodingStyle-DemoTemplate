@@ -10,8 +10,8 @@
     "build": "vue-cli-service build",
     "lint": "eslint --ext .ts,.js,.vue .",
     "lint:scss": "stylelint ./src/**/*.{vue,scss} --fix",
-    "pre-commit": "npm run lint ",
-    "prepare": "husky install"
+    "pre-commit": "npm run lint",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@aspnet/signalr": "^1.1.4",
