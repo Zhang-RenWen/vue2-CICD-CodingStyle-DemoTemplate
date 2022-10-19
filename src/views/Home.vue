@@ -3,10 +3,9 @@
     <SideBar class="sideBar" :class="[sideMenuOpen ? '' : 'sideBarClosed']" />
     <NavBar />
     <section class="contents" :class="[sideMenuOpen ? '' : 'contentsClosed']">
-      <v-app light v-if="$route.path.includes('Vuetify')">
+      <v-app light>
         <router-view />
       </v-app>
-      <router-view v-else />
     </section>
   </div>
 </template>
@@ -45,7 +44,6 @@ $asideWidth: 290px;
 $contentWidth-mobile: calc(100%);
 $contentWidth-pad: calc(100%);
 $contentWidth: calc(100% - 290px);
-$aslidebar: 15px;
 $background-color-aside: #24282c;
 $transition-speed: 300ms;
 

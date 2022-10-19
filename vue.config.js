@@ -37,7 +37,5 @@ module.exports = {
     config.module.rule('svg').exclude.add(dir)
     // 忽略/moment/locale下的所有文件 減少打包體積
     config.plugin('ignore').use(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/))
-  },
-
-  transpileDependencies: ['vuetify'] // vuetify setting
+  }
 }

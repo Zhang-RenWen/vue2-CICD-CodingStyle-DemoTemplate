@@ -1,8 +1,9 @@
+<!-- eslint-disable vue/no-v-html -->
 <template>
   <div>
-    <div v-html="htmlStr" v-highlightjs />
-    <div v-html="cssStr" v-highlightjs />
-    <div v-html="jsStr" v-highlightjs />
+    <div v-highlightjs v-html="htmlStr" />
+    <div v-highlightjs v-html="cssStr" />
+    <div v-highlightjs v-html="jsStr" />
   </div>
 </template>
 

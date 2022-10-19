@@ -1,8 +1,8 @@
 <template>
   <div class="outer">
-    <div class="layer" id="layer-1" />
-    <div class="layer" id="layer-2" />
-    <div class="layer" id="layer-3" />
+    <div id="layer-1" class="layer" />
+    <div id="layer-2" class="layer" />
+    <div id="layer-3" class="layer" />
   </div>
 </template>
 
@@ -28,7 +28,7 @@ export default {
       Array.from(outer.querySelectorAll('.layer')).forEach((item, index) => {
         layers.push({
           layer: item,
-          startposition: {
+          startPosition: {
             x: -50,
             y: 0,
             z: index * 4 + 4
@@ -50,10 +50,10 @@ export default {
             Math.sqrt(Math.pow(window.innerWidth / 2, 2) + Math.pow(window.innerHeight / 2, 2))
         // Moves layers
         layers.forEach(item => {
-          let xMoved = Math.cos(direction) * item.startposition.z * distanceEqualized,
-            yMoved = Math.sin(direction) * item.startposition.z * distanceEqualized
-          item.layer.style.cssText = `top:calc( ${item.startposition.y}px + ${yMoved}%);
-          left:calc( ${item.startposition.x}px + ${xMoved}%)`
+          let xMoved = Math.cos(direction) * item.startPosition.z * distanceEqualized,
+            yMoved = Math.sin(direction) * item.startPosition.z * distanceEqualized
+          item.layer.style.cssText = `top:calc( ${item.startPosition.y}px + ${yMoved}%);
+          left:calc( ${item.startPosition.x}px + ${xMoved}%)`
         })
       })
     }
@@ -62,8 +62,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// This is seriously old, just sayin' ...
-
 body {
   margin: 0;
   background-color: #292929;
