@@ -105,7 +105,7 @@ class Sticky {
       requestAnimationFrame(() => {
         this.isPending = false
         this.recomputeState()
-        this.undateElements()
+        this.updateElements()
       })
       this.isPending = true
     }
@@ -161,7 +161,7 @@ class Sticky {
     }
   }
 
-  undateElements() {
+  updateElements() {
     const placeholderStyle = { paddingTop: 0 }
     const elStyle = {
       position: 'static',
