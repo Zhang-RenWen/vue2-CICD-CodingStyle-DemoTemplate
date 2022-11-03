@@ -62,28 +62,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-body {
-  margin: 0;
-  background-color: #292929;
-}
-
 .outer {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 900px;
-  height: 600px;
-  border: 6px solid #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transform: translate(-25%, -50%);
+  width: 50%;
+  height: 50%;
+  border: 6px solid rgb(73, 73, 73);
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
   overflow: hidden;
 
   .layer {
     position: absolute;
-    top: -10%;
-    left: -10%;
+    top: -5%;
+    left: 0%;
     width: 120%;
-    height: 120%;
+    height: 110%;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -91,12 +87,12 @@ body {
     &#layer-1 {
       background-image: url(../../assets/image/Blue_Point_Island.png);
       z-index: 1;
+      background-size: cover;
     }
 
     &#layer-2 {
-      width: 600px;
+      width: 100%;
       height: 50%;
-      margin-left: 20%;
       margin-top: 5%;
       background-image: url(../../assets/image/Articuno.png);
       z-index: 2;
@@ -105,7 +101,7 @@ body {
     &#layer-3 {
       width: 100%;
       height: 100%;
-      margin-left: 35%;
+      margin-left: 25%;
       margin-top: 10%;
       background-image: url(../../assets/image/kisspng-meteor-shower-icon-meteor-shower-across-the-sky-5a73e5d3903ae1.8340378315175449155908__1_-removebg-preview.png);
       z-index: 3;

@@ -1,11 +1,10 @@
 <template>
   <div id="wrap">
-    <SideBar class="sideBar" :class="[sideMenuOpen ? '' : 'sideBarClosed']" />
+    <SideBar class="side-bar" :class="[sideMenuOpen ? '' : 'side-bar-closed']" />
     <NavBar />
-    <section class="contents" :class="[sideMenuOpen ? '' : 'contentsClosed']">
-      <v-app light>
-        <router-view />
-      </v-app>
+
+    <section class="contents" :class="[sideMenuOpen ? '' : 'contents-closed']">
+      <router-view />
     </section>
   </div>
 </template>
@@ -35,81 +34,74 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import '@/components/charts/scss/chartsBase';
-</style>
-
 <style lang="scss" scoped>
-$asideWidth: 290px;
-$contentWidth-mobile: calc(100%);
-$contentWidth-pad: calc(100%);
-$contentWidth: calc(100% - 290px);
+$aside-width: 290px;
+$content-width-mobile: calc(100%);
+$content-width-pad: calc(100%);
+$content-width: calc(100% - 290px);
 $background-color-aside: #24282c;
 $transition-speed: 300ms;
 
 #wrap {
+  display: flex;
   width: 100%;
   height: 100%;
-  display: flex;
 
-  .sideBar {
-    width: $asideWidth;
-    padding-top: 60px;
-    background-color: $background-color-aside;
-    color: rgb(0, 0, 0);
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-    -webkit-transition: all $transition-speed ease-in-out;
-    -webkit-transition: $transition-speed;
-    transition: $transition-speed;
-    overflow-x: auto;
+  .side-bar {
     position: fixed;
     top: 0;
     right: 0;
     z-index: 3;
+    padding-top: 60px;
+    width: $aside-width;
     border-radius: 0;
+    color: #000;
+    background-color: $background-color-aside;
+    transform: translateX(0);
+    transition: all $transition-speed ease-in-out;
   }
 
-  .sideBarClosed {
+  .side-bar-closed {
     width: 0;
     border-radius: 100% 0 0 100%;
   }
 
   .contents {
-    -webkit-transition: all $transition-speed ease-in-out;
-    -webkit-transition: $transition-speed;
-    transition: $transition-speed;
-    width: $contentWidth-mobile;
     overflow-y: auto;
+    padding: 100px 40px 40px;
+    width: $content-width-mobile;
     height: 100vh;
-    padding-top: 60px;
-    background-color: #fff;
+    background-color: #d9d9d9;
+    transition: all $transition-speed ease-in-out;
+    transition: $transition-speed;
+    transition: $transition-speed;
   }
 }
 
 @media screen and (min-width: 768px) {
   #wrap {
     .contents {
-      width: $contentWidth-pad;
+      width: $content-width-pad;
     }
   }
 }
+
 @media screen and (min-width: 1024px) {
   #wrap {
     .contents {
-      width: $contentWidth;
+      width: $content-width;
     }
 
-    .sideBar {
+    .side-bar {
       position: relative;
     }
 
-    .sideBarClosed {
+    .side-bar-closed {
       width: 0;
       border-radius: 0;
     }
 
-    .contentsClosed {
+    .contents-closed {
       width: 100%;
     }
   }

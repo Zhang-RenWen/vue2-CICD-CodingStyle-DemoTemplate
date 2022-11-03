@@ -1,7 +1,5 @@
 <template>
-  <v-sheet outlined>
-    <input type="text" @input="check" />
-  </v-sheet>
+  <input type="text" @input="check" />
 </template>
 
 <script>
