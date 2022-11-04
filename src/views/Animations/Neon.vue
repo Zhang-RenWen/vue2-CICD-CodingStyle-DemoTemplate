@@ -20,11 +20,8 @@ export default {
 
 <style lang="scss" scoped>
 .loveWrapper {
-  margin-top: 20px;
-  margin-left: 20px;
   width: 100%;
-  height: 100%;
-  padding: 120px;
+  height: 50%;
   border: 5px solid black;
   background-color: black;
   text-align: center;

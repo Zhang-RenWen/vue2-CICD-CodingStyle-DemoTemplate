@@ -1,12 +1,14 @@
 <template>
-  <div id="wrap">
-    <SideBar class="side-bar" :class="[sideMenuOpen ? '' : 'side-bar-closed']" />
-    <NavBar />
+  <v-app light>
+    <div id="wrap">
+      <SideBar class="side-bar" :class="[sideMenuOpen ? '' : 'side-bar-closed']" />
+      <NavBar />
 
-    <section class="contents" :class="[sideMenuOpen ? '' : 'contents-closed']">
-      <router-view />
-    </section>
-  </div>
+      <section class="contents" :class="[sideMenuOpen ? '' : 'contents-closed']">
+        <router-view />
+      </section>
+    </div>
+  </v-app>
 </template>
 
 <script>
@@ -34,6 +36,10 @@ export default {
 }
 </script>
 
+<style lang="scss">
+@import '@/components/charts/scss/chartsBase';
+</style>
+
 <style lang="scss" scoped>
 $aside-width: 290px;
 $content-width-mobile: calc(100%);
@@ -52,6 +58,7 @@ $transition-speed: 300ms;
     top: 0;
     right: 0;
     z-index: 3;
+    overflow-x: auto;
     padding-top: 60px;
     width: $aside-width;
     border-radius: 0;
