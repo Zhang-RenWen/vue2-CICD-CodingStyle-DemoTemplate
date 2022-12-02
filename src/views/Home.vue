@@ -1,14 +1,12 @@
 <template>
-  <v-app light>
-    <div id="wrap">
-      <SideBar class="side-bar" :class="[sideMenuOpen ? '' : 'side-bar-closed']" />
-      <NavBar />
+  <div id="wrap">
+    <SideBar class="side-bar" :class="[sideMenuOpen ? '' : 'side-bar-closed']" />
+    <NavBar />
 
-      <section class="contents" :class="[sideMenuOpen ? '' : 'contents-closed']">
-        <router-view />
-      </section>
-    </div>
-  </v-app>
+    <section class="contents" :class="[sideMenuOpen ? '' : 'contents-closed']">
+      <router-view />
+    </section>
+  </div>
 </template>
 
 <script>
