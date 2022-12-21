@@ -1,9 +1,9 @@
 <template>
   <div class="frame">
-    <div class="bubble">
+    <div class="bubble animation-bubble-move">
       <div class="refraction-top" />
       <div class="refraction-bottom" />
-      <div class="light" />
+      <div class="light animation-light-move" />
       <div class="cover" />
     </div>
   </div>
@@ -97,15 +97,71 @@ export default {
   height: 100%;
   border-radius: 50%;
   background-color: #000;
-  animation: broken 3s cubic-bezier(0.72, 0.37, 1, 1) 1.1s infinite both;
+  animation: broken 2s cubic-bezier(0.72, 0.37, 1, 1) 0s infinite both;
+}
+
+.animation-bubble-move {
+  animation: bubble-move 2s cubic-bezier(0.72, 0.37, 1, 1) 0s infinite both;
+}
+
+.animation-light-move {
+  animation: light-move 2s cubic-bezier(0.72, 0.37, 1, 1) 0s infinite both;
 }
 
 @keyframes broken {
   0% {
     transform: translate(-35%, -35%) scale(0);
   }
-  25% {
+  57% {
+    transform: translate(-35%, -35%) scale(0);
+  }
+  65% {
     transform: translate(-1%, -1%) scale(1.05);
+  }
+  100% {
+    transform: translate(-1%, -1%) scale(1.05);
+  }
+}
+
+@keyframes bubble-move {
+  0% {
+    transform: translate(50%, 50%);
+  }
+  25% {
+    transform: translate(52%, 52%);
+  }
+  45% {
+    transform: translate(48%, 48%);
+  }
+  50% {
+    transform: translate(40%, 45%);
+  }
+  90% {
+    transform: translate(200%, 0%);
+  }
+  100% {
+    transform: translate(200%, 0%);
+  }
+}
+
+@keyframes light-move {
+  0% {
+    transform: translate(0%, 0%) rotate(30deg);
+  }
+  25% {
+    transform: translate(10%, 10%) rotate(28deg);
+  }
+  45% {
+    transform: translate(5%, 5%) rotate(30deg);
+  }
+  50% {
+    transform: translate(12%, 0%) rotate(30deg);
+  }
+  60% {
+    transform: translate(-100%, 10%) rotate(30deg) scale(0);
+  }
+  100% {
+    transform: translate(-100%, 20%) rotate(30deg) scale(0);
   }
 }
 </style>
