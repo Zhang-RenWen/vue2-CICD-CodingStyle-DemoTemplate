@@ -8,14 +8,19 @@
   "words": [
     "Articuno",
     "aspnet",
+    "Auguest",
     "blockui",
     "bootcdn",
     "browserslist",
     "codemirror",
     "commitlint",
+    "ctitle",
+    "cyear",
     "datepicker",
+    "Febrary",
     "fontawesome",
     "fortawesome",
+    "greenbox",
     "hexrgba",
     "highlightjs",
     "Jheng",
@@ -30,31 +35,36 @@
     "nuxtjs",
     "paren",
     "persistedstate",
+    "Picsum",
     "plusplus",
     "popperjs",
     "postbuild",
+    "rball",
+    "redball",
     "removebg",
     "RENWEN",
+    "richtext",
     "SAMEORIGIN",
     "signalr",
     "singleline",
     "stylelint",
     "sweetalert",
+    "thisday",
+    "ungrown",
+    "unremark",
+    "unsubscribers",
     "uuidv",
     "viwes",
+    "vnode",
     "vuejs",
     "vuetify",
     "vuex",
-    "unsubscribers",
-    "vnode",
-    "ungrown",
-    "Webflow",
-    "richtext",
-    "Picsum",
-    "unremark"
+    "Webflow"
   ],
   // flagWords - list of words to be always considered incorrect
   // This is useful for offensive words and common spelling errors.
   // For example "hte" should be "the"
-  "flagWords": [""]
+  "flagWords": [
+    ""
+  ]
 }

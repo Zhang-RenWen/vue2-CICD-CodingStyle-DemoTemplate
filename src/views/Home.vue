@@ -39,10 +39,13 @@ export default {
 </style>
 
 <style lang="scss" scoped>
-$aside-width: 290px;
+* {
+  box-sizing: border-box;
+}
+$aside-width: 280px;
 $content-width-mobile: calc(100%);
 $content-width-pad: calc(100%);
-$content-width: calc(100% - 290px);
+$content-width: calc(100% - $aside-width);
 $background-color-aside: #24282c;
 $transition-speed: 300ms;
 
@@ -55,10 +58,11 @@ $transition-speed: 300ms;
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 3;
+    z-index: 11;
     overflow-x: auto;
-    padding-top: 60px;
+    padding-top: 50px;
     width: $aside-width;
+    height: 100vh;
     border-radius: 0;
     color: #000;
     background-color: $background-color-aside;
@@ -73,7 +77,7 @@ $transition-speed: 300ms;
 
   .contents {
     overflow-y: auto;
-    padding: 100px 40px 40px;
+    padding: 70px 40px 40px;
     width: $content-width-mobile;
     height: 100vh;
     background-color: #d9d9d9;
