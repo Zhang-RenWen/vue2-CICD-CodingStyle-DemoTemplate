@@ -73,7 +73,6 @@ body {
   transform-origin: 100% 0;
   border-radius: 5px 0 0 5px;
   box-shadow: inset 3px 0px 20px rgba(0, 0, 0, 0.2), 0px 0px 15px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
 }
 .cover.turn {
   animation: bookCover 3s forwards;

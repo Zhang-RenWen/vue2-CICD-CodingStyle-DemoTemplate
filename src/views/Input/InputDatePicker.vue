@@ -305,7 +305,6 @@ export default {
     line-height: 100px;
     list-style-type: none;
     display: block;
-    box-sizing: border-box;
     text-align: center;
     border: #e9f8df 1px solid;
     font-size: 26px;

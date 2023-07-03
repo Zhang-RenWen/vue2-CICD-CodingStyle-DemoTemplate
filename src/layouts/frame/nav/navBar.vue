@@ -1,6 +1,6 @@
 <template>
-  <nav id="navBar">
-    <div class="sideMenuButton" :class="[sideMenuOpen ? 'active' : '']" @click="toggleSlider">
+  <nav id="nav-bar">
+    <div class="side-menu-button" :class="[sideMenuOpen ? 'active' : '']" @click="toggleSlider">
       <div />
       <div />
       <div />
@@ -39,85 +39,80 @@ export default {
 $background-color: #001529;
 $elements-color: #fff;
 $transition-speed: 300ms;
-$asideWidth: 290px;
+$aside-width: 280px;
+$nav-height: 50px;
+$toggle-button-stroke: 3px;
+$toggle-button-width: 2.6rem;
 
-#navBar {
-  background-color: $background-color;
+#nav-bar .active div {
+  position: absolute;
+  width: $toggle-button-width;
+  height: $toggle-button-stroke;
+  background-color: $elements-color;
+  transition: all $transition-speed ease;
+}
+
+#nav-bar {
+  position: fixed;
+  z-index: 11;
   display: flex;
   justify-content: space-between;
-  z-index: 3;
-  height: 60px;
-  position: fixed;
-  width: 100%;
   flex-direction: row-reverse;
+  width: 100%;
+  height: $nav-height;
+  background-color: $background-color;
 
   nav {
-    height: 60px;
-    width: 100%;
-    background-color: $background-color;
-    color: $elements-color;
     position: relative;
     display: inline-block;
+    width: 100%;
+    height: $nav-height;
+    color: $elements-color;
+    background-color: $background-color;
   }
 
-  .sideMenuButton {
+  .side-menu-button {
     cursor: pointer;
     position: relative;
     display: inline-block;
     width: 5rem;
 
     div {
-      width: 3rem;
-      height: 5px;
-      background-color: $elements-color;
-      margin-bottom: 0.4rem;
-      -webkit-transition: all $transition-speed ease;
-      -moz-transition: all $transition-speed ease;
-      transition: all $transition-speed ease;
       position: absolute;
+      width: $toggle-button-width;
+      height: $toggle-button-stroke;
+      background-color: $elements-color;
+      transition: all $transition-speed ease;
     }
 
     div:nth-child(1) {
-      left: 1rem;
       top: 1rem;
+      left: 1rem;
     }
 
     div:nth-child(2) {
+      top: 1.6rem;
       left: 1rem;
-      top: 1.8rem;
     }
 
     div:nth-child(2)::after {
       content: '';
       position: absolute;
-      left: 0;
       top: 0;
-      width: 3rem;
-      height: 5px;
+      left: 0;
+      width: $toggle-button-width;
+      height: $toggle-button-stroke;
       background-color: $elements-color;
-      -webkit-transition: all $transition-speed ease;
-      -moz-transition: all $transition-speed ease;
       transition: all $transition-speed ease;
     }
 
     div:nth-child(3) {
-      right: 1rem;
-      top: 2.6rem;
+      top: 2.2rem;
+      right: 1.4rem;
     }
   }
 
   .active {
-    div {
-      width: 3rem;
-      height: 5px;
-      background-color: $elements-color;
-      margin-bottom: 0.3rem;
-      -webkit-transition: all $transition-speed ease;
-      -moz-transition: all $transition-speed ease;
-      transition: all $transition-speed ease;
-      position: absolute;
-    }
-
     div:nth-child(1),
     div:nth-child(3) {
       width: 0;
@@ -134,18 +129,18 @@ $asideWidth: 290px;
   }
 
   .trademark {
-    height: 60px;
-    line-height: 60px;
-    width: $asideWidth;
-    color: $elements-color;
+    padding-left: 20px;
+    width: $aside-width;
+    height: $nav-height;
+    line-height: $nav-height;
     font-size: 26px;
     font-weight: 600;
-    padding-left: 20px;
+    color: $elements-color;
   }
 }
 
 @media screen and (min-width: 1024px) {
-  #navBar {
+  #nav-bar {
     flex-direction: row;
     justify-content: flex-start;
   }

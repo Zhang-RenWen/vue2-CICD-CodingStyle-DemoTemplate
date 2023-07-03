@@ -148,7 +148,6 @@ html.w-mod-touch * {
   overflow: visible;
   overflow-x: visible;
   overflow-y: visible;
-  box-sizing: border-box;
   width: auto;
   height: auto;
   max-height: none;
@@ -167,7 +166,6 @@ html.w-mod-touch * {
   background-size: auto auto;
   background-repeat: repeat;
   background-origin: padding-box;
-  background-clip: border-box;
   background-attachment: scroll;
   background-color: transparent;
   box-shadow: none;

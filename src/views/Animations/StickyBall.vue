@@ -160,8 +160,6 @@ export default {
 
 .drop-outer {
   position: absolute;
-  box-sizing: border-box;
-
   /* border: 1px solid #333; */
   width: 100px;
   height: 200px;
@@ -176,7 +174,6 @@ export default {
 
 .ripple {
   position: absolute;
-  box-sizing: border-box;
   width: 240px;
   height: 240px;
   top: 68px;

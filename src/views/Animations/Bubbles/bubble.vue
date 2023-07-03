@@ -97,15 +97,15 @@ export default {
   height: 100%;
   border-radius: 50%;
   background-color: #000;
-  animation: broken 2s cubic-bezier(0.72, 0.37, 1, 1) 0s infinite both;
-}
-
-.animation-bubble-move {
-  animation: bubble-move 2s cubic-bezier(0.72, 0.37, 1, 1) 0s infinite both;
+  animation: broken 0.5s cubic-bezier(0.72, 0.37, 1, 1) 0.4s normal both;
 }
 
 .animation-light-move {
-  animation: light-move 2s cubic-bezier(0.72, 0.37, 1, 1) 0s infinite both;
+  animation: light-move 1s cubic-bezier(0.72, 0.37, 1, 1) 0s infinite both;
+}
+
+.animation-bubble-move {
+  animation: bubble-move 1s cubic-bezier(0.73, 0.39, 1, 0.5) 0s normal both;
 }
 
 @keyframes broken {
@@ -120,27 +120,6 @@ export default {
   }
   100% {
     transform: translate(-1%, -1%) scale(1.05);
-  }
-}
-
-@keyframes bubble-move {
-  0% {
-    transform: translate(50%, 50%);
-  }
-  25% {
-    transform: translate(52%, 52%);
-  }
-  45% {
-    transform: translate(48%, 48%);
-  }
-  50% {
-    transform: translate(40%, 45%);
-  }
-  90% {
-    transform: translate(200%, 0%);
-  }
-  100% {
-    transform: translate(200%, 0%);
   }
 }
 
@@ -162,6 +141,43 @@ export default {
   }
   100% {
     transform: translate(-100%, 20%) rotate(30deg) scale(0);
+  }
+}
+
+@keyframes bubble-move {
+  0% {
+    transform: translate(50%, 50%);
+  }
+
+  25% {
+    transform: translate(52%, 52%);
+  }
+  45% {
+    transform: translate(48%, 48%);
+  }
+  50% {
+    transform: translate(40%, 45%);
+  }
+  60% {
+    transform: translate(50%, 40%);
+  }
+  65% {
+    transform: translate(65%, 35%);
+  }
+  70% {
+    transform: translate(70%, 30%);
+  }
+  80% {
+    transform: translate(80%, 25%);
+  }
+  90% {
+    transform: translate(90%, 10%);
+  }
+  95% {
+    transform: translate(95%, 5%);
+  }
+  100% {
+    transform: translate(100%, 5%);
   }
 }
 </style>
